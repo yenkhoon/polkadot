@@ -18,22 +18,22 @@ parachain = { package = "polkadot-parachain", path = "../parachain" }
 polkadot-primitives = { path = "../primitives" }
 polkadot-erasure-coding = { path = "../erasure-coding" }
 table = { package = "polkadot-statement-table", path = "../statement-table" }
-grandpa = { package = "sc-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-inherents = { package = "sp-inherents", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-consensus = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-primitives = { package = "sp-core", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-txpool-api = { package = "sp-transaction-pool", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-api = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-timestamp = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-block-builder = { package = "sc-block-builder", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-trie = { package = "sp-trie", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-runtime_primitives = { package = "sp-runtime", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
+grandpa = { package = "sc-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+inherents = { package = "sp-inherents", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+consensus = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+primitives = { package = "sp-core", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+txpool-api = { package = "sp-transaction-pool", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-api = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-timestamp = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+block-builder = { package = "sc-block-builder", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+trie = { package = "sp-trie", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+runtime_primitives = { package = "sp-runtime", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
 bitvec = { version = "0.17.4", default-features = false, features = ["alloc"] }
-runtime_babe = { package = "pallet-babe", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-keystore = { package = "sc-keystore", git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
+runtime_babe = { package = "pallet-babe", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+keystore = { package = "sc-keystore", git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
 
 [dev-dependencies]
-sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }

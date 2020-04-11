@@ -10,14 +10,14 @@ log = "0.4.8"
 parking_lot = "0.10.0"
 futures = "0.3.1"
 rand = "0.7.2"
-sc-network = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sc-network-test = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-consensus = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sc-client = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
-sc-block-builder = { git = "https://github.com/paritytech/substrate", branch = "tka-channel-names" }
+sc-network = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sc-network-test = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-consensus = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sc-client = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
+sc-block-builder = { git = "https://github.com/paritytech/substrate", branch = "mxinden-auth-disc-leak" }
 env_logger = "0.7.0"
 polkadot-test-runtime-client = { path = "../../runtime/test-runtime/client" }
