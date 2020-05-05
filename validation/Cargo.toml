@@ -18,22 +18,22 @@ parachain = { package = "polkadot-parachain", path = "../parachain" }
 polkadot-primitives = { path = "../primitives" }
 polkadot-erasure-coding = { path = "../erasure-coding" }
 table = { package = "polkadot-statement-table", path = "../statement-table" }
-grandpa = { package = "sc-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "master" }
-inherents = { package = "sp-inherents", git = "https://github.com/paritytech/substrate", branch = "master" }
-consensus = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "master" }
-primitives = { package = "sp-core", git = "https://github.com/paritytech/substrate", branch = "master" }
-txpool-api = { package = "sp-transaction-pool", git = "https://github.com/paritytech/substrate", branch = "master" }
-sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "master" }
-sp-api = { git = "https://github.com/paritytech/substrate", branch = "master" }
-sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "master" }
-sp-timestamp = { git = "https://github.com/paritytech/substrate", branch = "master" }
-block-builder = { package = "sc-block-builder", git = "https://github.com/paritytech/substrate", branch = "master" }
-trie = { package = "sp-trie", git = "https://github.com/paritytech/substrate", branch = "master" }
-runtime_primitives = { package = "sp-runtime", git = "https://github.com/paritytech/substrate", branch = "master" }
+grandpa = { package = "sc-finality-grandpa", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+inherents = { package = "sp-inherents", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+consensus = { package = "sp-consensus", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+primitives = { package = "sp-core", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+txpool-api = { package = "sp-transaction-pool", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+sp-blockchain = { git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+sp-api = { git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+sc-client-api = { git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+sp-timestamp = { git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+block-builder = { package = "sc-block-builder", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+trie = { package = "sp-trie", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+runtime_primitives = { package = "sp-runtime", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
 bitvec = { version = "0.17.4", default-features = false, features = ["alloc"] }
-runtime_babe = { package = "pallet-babe", git = "https://github.com/paritytech/substrate", branch = "master" }
-babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "master" }
-keystore = { package = "sc-keystore", git = "https://github.com/paritytech/substrate", branch = "master" }
+runtime_babe = { package = "pallet-babe", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
+keystore = { package = "sc-keystore", git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
 
 [dev-dependencies]
-sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "master" }
+sp-keyring = { git = "https://github.com/mxinden/substrate", branch = "network-gossip-bounded" }
