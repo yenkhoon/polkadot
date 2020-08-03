@@ -246,6 +246,7 @@ fn action_from_network_message(event: Option<NetworkEvent>) -> Option<Action> {
 			Some(Action::Abort)
 		}
 		Some(NetworkEvent::Dht(_)) => None,
+		Some(NetworkEvent::Bitswap(_)) => None,
 		Some(NetworkEvent::NotificationStreamOpened { remote, engine_id, role }) => {
 			if engine_id == POLKADOT_ENGINE_ID {
 				Some(Action::PeerConnected(remote, role))

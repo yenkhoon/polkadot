@@ -258,6 +258,7 @@ pub fn start<C, Api, SP>(
 			while let Some(event) = event_stream.next().await {
 				let res = match event {
 					Event::Dht(_) => continue,
+					Event::Bitswap(_) => continue,
 					Event::NotificationStreamOpened {
 						remote,
 						engine_id,
