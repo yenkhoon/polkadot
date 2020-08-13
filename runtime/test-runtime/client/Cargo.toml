@@ -16,14 +16,14 @@ polkadot-test-runtime = { path = ".." }
 polkadot-test-service = { path = "../../../node/test-service" }
 
 # Substrate dependencies
-pallet-timestamp = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sc-block-builder = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sc-consensus = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sc-light = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sc-service = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch", features = ["test-helpers"],  default-features = false }
-sp-api = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
-substrate-test-client = { git = "https://github.com/paritytech/substrate", branch = "rococo-branch" }
+pallet-timestamp = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-block-builder = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-client-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-consensus = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-light = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-service = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch", features = ["test-helpers"],  default-features = false }
+sp-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sp-blockchain = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sp-core = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sp-runtime = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+substrate-test-client = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
