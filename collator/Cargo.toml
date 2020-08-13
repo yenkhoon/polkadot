@@ -7,16 +7,16 @@ edition = "2018"
 
 [dependencies]
 futures = "0.3.4"
-sc-service = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-executor = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-cli = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-client-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-network = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-blockchain = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-core = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-runtime = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-consensus_common = { package = "sp-consensus", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-service = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-executor = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-cli = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-network = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-api = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+consensus_common = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
 polkadot-primitives = { path = "../primitives" }
 polkadot-cli = { path = "../cli" }
 polkadot-network = { path = "../network" }
@@ -29,7 +29,7 @@ futures-timer = "2.0"
 codec = { package = "parity-scale-codec", version = "1.3.4" }
 
 [dev-dependencies]
-keyring = { package = "sp-keyring", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+keyring = { package = "sp-keyring", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
 
 [features]
 default = ["service-old"]

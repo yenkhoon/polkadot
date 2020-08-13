@@ -12,16 +12,16 @@ parity-scale-codec = "1.3.4"
 polkadot-node-subsystem = { path = "../../subsystem" }
 polkadot-overseer = { path = "../../overseer" }
 polkadot-primitives = { path = "../../../primitives" }
-sc-basic-authorship = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-block-builder = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-client-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-telemetry = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-blockchain = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-consensus = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-core = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-inherents = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-runtime = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-transaction-pool = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+sc-basic-authorship = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-block-builder = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-telemetry = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-api = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-consensus = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-inherents = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-transaction-pool = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
 tokio-executor = { version = "0.2.0-alpha.6", features = ["blocking"] }
 wasm-timer = "0.2.4"

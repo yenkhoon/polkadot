@@ -23,34 +23,34 @@ polkadot-service = { path = "../../service" }
 polkadot-test-runtime = { path = "../../runtime/test-runtime" }
 
 # Substrate dependencies
-authority-discovery = { package = "sc-authority-discovery", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-babe = { package = "sc-consensus-babe", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-babe-primitives = { package = "sp-consensus-babe", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-consensus_common = { package = "sp-consensus", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-frame-benchmarking = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-frame-system = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-grandpa = { package = "sc-finality-grandpa", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-grandpa_primitives = { package = "sp-finality-grandpa", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-inherents = { package = "sp-inherents", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-pallet-staking = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-pallet-transaction-payment = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-chain-spec = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-client-api = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-consensus = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-executor = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-informant = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-network = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sc-transaction-pool = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-service = { package = "sc-service", git = "file:///home/cecile/repos/substrate", branch = "rococo-branch", default-features = false }
-sp-arithmetic = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-blockchain = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-core = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-keyring = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-runtime = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-sp-state-machine = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
-substrate-test-client = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch" }
+authority-discovery = { package = "sc-authority-discovery", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+babe = { package = "sc-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+consensus_common = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+frame-benchmarking = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+frame-system = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+grandpa = { package = "sc-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+grandpa_primitives = { package = "sp-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+inherents = { package = "sp-inherents", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+pallet-staking = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+pallet-transaction-payment = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-chain-spec = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-consensus = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-executor = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-informant = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-network = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sc-transaction-pool = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+service = { package = "sc-service", git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again", default-features = false }
+sp-arithmetic = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+sp-state-machine = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
+substrate-test-client = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again" }
 
 [dev-dependencies]
-pallet-balances = { git = "file:///home/cecile/repos/substrate", branch = "rococo-branch", default-features = false }
+pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "cecton-fix-int-test-again", default-features = false }
 serde_json = "1.0"
 tokio = { version = "0.2", features = ["macros"] }
