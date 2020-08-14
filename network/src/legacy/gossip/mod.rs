@@ -431,6 +431,7 @@ impl RegisteredMessageValidator {
 
 	pub(crate) fn gossip_messages_for(&self, topic: Hash) -> GossipMessageStream {
 		let topic_stream = if let Some(gossip_engine) = self.gossip_engine.as_ref() {
+			log::error!("############ 10");
 			gossip_engine.lock().messages_for(topic)
 		} else {
 			log::error!("Called gossip_messages_for on a test engine");
@@ -454,6 +455,7 @@ impl RegisteredMessageValidator {
 
 	pub(crate) fn send_message(&self, who: PeerId, message: GossipMessage) {
 		if let Some(gossip_engine) = self.gossip_engine.as_ref() {
+			log::error!("############ 11 {}", who);
 			gossip_engine.lock().send_message(vec![who], message.encode());
 		} else {
 			log::error!("Called send_message on a test engine");
@@ -643,17 +645,24 @@ impl<C: ChainContext + ?Sized> sc_network_gossip::Validator<Block> for MessageVa
 	fn validate(&self, context: &mut dyn ValidatorContext<Block>, sender: &PeerId, data: &[u8])
 		-> GossipValidationResult<Hash>
 	{
+		log::error!("############ 12");
 		let mut decode_data = data;
 		let (res, cost_benefit) = match GossipMessage::decode(&mut decode_data) {
-			Err(_) => (GossipValidationResult::Discard, cost::MALFORMED_MESSAGE),
+			Err(_) => {
+				log::error!("############ 13");
+				(GossipValidationResult::Discard, cost::MALFORMED_MESSAGE)
+			},
 			Ok(GossipMessage::Neighbor(VersionedNeighborPacket::V1(packet))) => {
+				log::error!("############ 14");
 				let (res, cb, topics) = self.inner.write().validate_neighbor_packet(sender, packet);
 				for new_topic in topics {
+					log::error!("############ 14.1 {}", new_topic);
 					context.send_topic(sender, new_topic, false);
 				}
 				(res, cb)
 			}
 			Ok(GossipMessage::Statement(statement)) => {
+				log::error!("############ 15");
 				let (res, cb) = {
 					let mut inner = self.inner.write();
 					let inner = &mut *inner;
@@ -666,6 +675,7 @@ impl<C: ChainContext + ?Sized> sc_network_gossip::Validator<Block> for MessageVa
 				(res, cb)
 			}
 			Ok(GossipMessage::PoVBlock(pov_block)) => {
+				log::error!("############ 16");
 				let (res, cb) = {
 					let mut inner = self.inner.write();
 					let inner = &mut *inner;
@@ -679,6 +689,7 @@ impl<C: ChainContext + ?Sized> sc_network_gossip::Validator<Block> for MessageVa
 				(res, cb)
 			}
 			Ok(GossipMessage::ErasureChunk(chunk)) => {
+				log::error!("############ 17");
 				self.inner.write().validate_erasure_chunk_packet(chunk)
 			}
 		};

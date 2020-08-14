@@ -38,6 +38,7 @@ use polkadot_primitives::v0::Hash;
 use std::collections::HashMap;
 
 use log::warn;
+use log::error;
 
 use super::{
 	cost, benefit, attestation_topic, MAX_CHAIN_HEADS, LeavesVec,
@@ -271,10 +272,17 @@ impl View {
 							"Leaf block {} not considered live for attestation",
 							message.relay_chain_leaf,
 						);
+						error!("###### 1");
 						cost::NONE
 					}
-					Some(Known::Old) => cost::POV_BLOCK_UNWANTED,
-					_ => cost::FUTURE_MESSAGE,
+					Some(Known::Old) => {
+						error!("###### 2");
+						cost::POV_BLOCK_UNWANTED
+					},
+					_ => {
+						error!("###### 3");
+						cost::FUTURE_MESSAGE
+					},
 				};
 
 				(GossipValidationResult::Discard, cost)
@@ -283,13 +291,19 @@ impl View {
 				// we only accept pov-blocks for candidates that we have
 				// and consider active.
 				match view.knowledge.candidate_meta(&message.candidate_hash) {
-					None => (GossipValidationResult::Discard, cost::POV_BLOCK_UNWANTED),
+					None => {
+						error!("###### 4");
+						(GossipValidationResult::Discard, cost::POV_BLOCK_UNWANTED)
+					},
 					Some(meta) => {
 						// check that the pov-block hash is actually correct.
+						error!("###### 5");
 						if meta.pov_block_hash == message.pov_block.hash() {
 							let topic = super::pov_block_topic(message.relay_chain_leaf);
+							error!("###### 6");
 							(GossipValidationResult::ProcessAndKeep(topic), benefit::NEW_POV_BLOCK)
 						} else {
+							error!("###### 7");
 							(GossipValidationResult::Discard, cost::POV_BLOCK_BAD_DATA)
 						}
 					}
