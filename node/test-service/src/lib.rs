@@ -134,7 +134,7 @@ pub fn node_config(
 
 	network_config.boot_nodes = boot_nodes;
 
-	network_config.allow_non_globals_in_dht = true;
+	network_config.allow_non_globals_in_dht = false;
 
 	network_config
 		.listen_addresses
@@ -157,22 +157,20 @@ pub fn node_config(
 			path: root.join("db"),
 			cache_size: 128,
 		},
-		state_cache_size: 16777216,
+		state_cache_size: 67108864,
 		state_cache_child_ratio: None,
 		pruning: Default::default(),
 		chain_spec: Box::new(spec),
 		wasm_method: WasmExecutionMethod::default(),
 		// NOTE: we enforce the use of the native runtime to make the errors more debuggable
-		/*
 		execution_strategies: ExecutionStrategies {
-			syncing: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-			importing: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-			block_construction: sc_client_api::ExecutionStrategy::NativeWhenPossible,
+			syncing: sc_client_api::ExecutionStrategy::NativeElseWasm,
+			importing: sc_client_api::ExecutionStrategy::NativeElseWasm,
+			block_construction: sc_client_api::ExecutionStrategy::AlwaysWasm,
 			offchain_worker: sc_client_api::ExecutionStrategy::NativeWhenPossible,
 			other: sc_client_api::ExecutionStrategy::NativeWhenPossible,
 		},
-		*/
-		execution_strategies: Default::default(),
+		//execution_strategies: Default::default(),
 		rpc_http: None,
 		rpc_ws: None,
 		rpc_ipc: None,
