@@ -161,8 +161,9 @@ pub fn node_config(
 		state_cache_child_ratio: None,
 		pruning: Default::default(),
 		chain_spec: Box::new(spec),
-		wasm_method: WasmExecutionMethod::Interpreted,
+		wasm_method: WasmExecutionMethod::default(),
 		// NOTE: we enforce the use of the native runtime to make the errors more debuggable
+		/*
 		execution_strategies: ExecutionStrategies {
 			syncing: sc_client_api::ExecutionStrategy::NativeWhenPossible,
 			importing: sc_client_api::ExecutionStrategy::NativeWhenPossible,
@@ -170,6 +171,8 @@ pub fn node_config(
 			offchain_worker: sc_client_api::ExecutionStrategy::NativeWhenPossible,
 			other: sc_client_api::ExecutionStrategy::NativeWhenPossible,
 		},
+		*/
+		execution_strategies: Default::default(),
 		rpc_http: None,
 		rpc_ws: None,
 		rpc_ipc: None,
