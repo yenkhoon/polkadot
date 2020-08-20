@@ -28,7 +28,7 @@ use futures::future::Either;
 use futures::prelude::*;
 use futures::task::{Context, Poll};
 use futures::stream::{FuturesUnordered, StreamFuture};
-use log::{debug, trace, error};
+use log::{debug, trace};
 
 use polkadot_primitives::v0::{
 	Hash, Block,
@@ -902,7 +902,6 @@ impl<Api, Sp, Gossip> Worker<Api, Sp, Gossip> where
 				self.build_consensus_networking(receiver, table, authorities);
 			}
 			ServiceToWorkerMsg::SubmitValidatedCollation(receipt, pov_block, chunks) => {
-				error!("###### 2");
 				let relay_parent = receipt.relay_parent;
 				let instance = match self.protocol_handler.consensus_instances.get(&relay_parent) {
 					None => return,
@@ -921,7 +920,6 @@ impl<Api, Sp, Gossip> Worker<Api, Sp, Gossip> where
 				// The gossip system checks that the correct pov-block data is present
 				// before placing in the pool, so we can safely check by candidate hash.
 				let get_msg = fetch_pov_from_gossip(&candidate, &self.gossip_handle);
-				error!("###### 1");
 
 				self.executor.spawn(
 					"polkadot-fetch-pov-block",
@@ -995,14 +993,10 @@ impl<Api, Sp, Gossip> Worker<Api, Sp, Gossip> where
 				self.protocol_handler.distribute_our_collation(targets, collation);
 			}
 			ServiceToWorkerMsg::ListenCheckedStatements(relay_parent, sender) => {
-				error!("###### 3");
 				let topic = crate::legacy::gossip::attestation_topic(relay_parent);
 				let checked_messages = self.gossip_handle.gossip_messages_for(topic)
 					.filter_map(|msg| match msg.0 {
-						GossipMessage::Statement(s) => {
-							error!("###### return 3");
-							future::ready(Some(s.signed_statement))
-						},
+						GossipMessage::Statement(s) => future::ready(Some(s.signed_statement)),
 						_ => future::ready(None),
 					})
 					.boxed();
@@ -1308,7 +1302,6 @@ fn distribute_validated_collation(
 		receipt,
 		pov_block.clone(),
 	);
-	log::error!("########## 30");
 
 	// gossip the signed statement.
 	{
@@ -1331,7 +1324,6 @@ fn distribute_validated_collation(
 			pov_block,
 		};
 
-		log::error!("########## 31");
 		gossip_handle.gossip_message(
 			crate::legacy::gossip::pov_block_topic(instance.relay_parent),
 			pov_block_message.into(),
@@ -1530,13 +1522,11 @@ impl TableRouter for Router {
 		pov_block: PoVBlock,
 		chunks: (ValidatorIndex, &[ErasureChunk]),
 	) -> Self::SendLocalCollation {
-		log::error!("######## 20");
 		if receipt.relay_parent != self.inner.relay_parent {
 			return Box::pin(
 				future::ready(Err(RouterError::IncorrectRelayParent(self.inner.relay_parent)))
 			);
 		}
-		log::error!("######## 21");
 
 		let message = ServiceToWorkerMsg::SubmitValidatedCollation(
 			receipt,
