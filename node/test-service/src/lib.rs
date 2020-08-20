@@ -108,9 +108,7 @@ pub fn node_config(
 ) -> Configuration {
 	let base_path = BasePath::new_temp_dir().expect("could not create temporary directory");
 	let root = base_path.path();
-	let role = Role::Authority {
-		sentry_nodes: Vec::new(),
-	};
+	let role = Role::Full;
 	let key_seed = key.to_seed();
 	let mut spec = polkadot_local_testnet_config();
 	let mut storage = spec
