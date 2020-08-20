@@ -295,6 +295,20 @@ decl_module! {
 			<Self as Registrar<T::AccountId>>::deregister_para(id)
 		}
 
+		#[weight = 0]
+		pub fn para_info(origin, #[compact] id: ParaId) -> DispatchResult {
+			ensure_root(origin)?;
+
+			let info = <Self as Registrar<T::AccountId>>::para_info(id);
+
+			#[cfg(feature = "std")]
+			println!("####### para_info: {:?}", info);
+
+			ensure!(info.is_some(), Error::<T>::CodeTooLarge);
+
+			Ok(())
+		}
+
 		/// Reset the number of parathreads that can pay to be scheduled in a single block.
 		///
 		/// - `count`: The number of parathreads.
