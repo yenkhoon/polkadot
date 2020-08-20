@@ -165,7 +165,7 @@ pub fn node_config(
 		// NOTE: we enforce the use of the native runtime to make the errors more debuggable
 		execution_strategies: ExecutionStrategies {
 			syncing: sc_client_api::ExecutionStrategy::NativeElseWasm,
-			importing: sc_client_api::ExecutionStrategy::NativeElseWasm,
+			importing: sc_client_api::ExecutionStrategy::AlwaysWasm,
 			block_construction: sc_client_api::ExecutionStrategy::AlwaysWasm,
 			offchain_worker: sc_client_api::ExecutionStrategy::NativeWhenPossible,
 			other: sc_client_api::ExecutionStrategy::NativeWhenPossible,
