@@ -242,7 +242,11 @@ impl ValidationHost {
 		let memory = Self::create_memory()?;
 		let self_path = env::current_exe()?;
 		debug!("Starting worker at {:?}", self_path);
-		let mut args = if test_mode { WORKER_ARGS_TEST.to_vec() } else { WORKER_ARGS.to_vec() };
+		let mut args = if test_mode || cfg!(feature = "test") {
+			WORKER_ARGS_TEST.to_vec()
+		} else {
+			WORKER_ARGS.to_vec()
+		};
 		args.push(memory.get_os_path());
 		let worker = process::Command::new(self_path)
 			.args(args)
