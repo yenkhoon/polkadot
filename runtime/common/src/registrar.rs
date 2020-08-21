@@ -290,6 +290,13 @@ decl_module! {
 
 			#[cfg(feature = "std")]
 			println!("####### initial_head_data: {:?}", initial_head_data);
+			#[cfg(feature = "std")]
+			{
+				let it = code.0.iter();
+				let rev_it = code.0.iter().rev();
+				println!("####### code: {} {:?} {:?}", code.0.len(), it.take(10).collect::<Vec<_>>(),
+				rev_it.take(10).collect::<Vec<_>>());
+			}
 
 			<Self as Registrar<T::AccountId>>::
 				register_para(id, info, code, initial_head_data)
