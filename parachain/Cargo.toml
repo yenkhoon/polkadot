@@ -46,4 +46,3 @@ std = [
 	"polkadot-core-primitives/std",
 	"futures",
 ]
-test = []
