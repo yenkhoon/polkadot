@@ -273,6 +273,9 @@ decl_module! {
 		) -> DispatchResult {
 			ensure_root(origin)?;
 
+			#[cfg(feature = "std")]
+			println!("####### register_para: {:?}", id);
+
 			ensure!(
 				<Self as Registrar<T::AccountId>>::code_size_allowed(code.0.len() as _),
 				Error::<T>::CodeTooLarge,
@@ -284,6 +287,10 @@ decl_module! {
 				),
 				Error::<T>::HeadDataTooLarge,
 			);
+
+			#[cfg(feature = "std")]
+			println!("####### initial_head_data: {:?}", initial_head_data);
+
 			<Self as Registrar<T::AccountId>>::
 				register_para(id, info, code, initial_head_data)
 		}
