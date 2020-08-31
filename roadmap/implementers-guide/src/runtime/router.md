@@ -23,8 +23,23 @@ NeedsDispatch: Vec<ParaId>;
 /// This is the para that gets will get dispatched first during the next upward dispatchable queue
 /// execution round.
 NextDispatchRoundStartWith: Option<ParaId>;
+```
+
+### Downward Message Passing (DMP)
+
+Storage layout required for implementation of DMP.
+
+```rust
 /// The downward messages addressed for a certain para.
-DownwardMessageQueues: map ParaId => Vec<DownwardMessage>;
+DownwardMessageQueues: map ParaId => Vec<InboundDownwardMessage>;
+/// A mapping that stores the downward message queue MQC head for each para.
+///
+/// Each link in this chain has a form:
+/// `(prev_head, B, H(M))`, where
+/// - `prev_head`: is the previous head hash.
+/// - `B`: is the relay-chain block number in which a message was appended.
+/// - `H(M)`: is the hash of the message being appended.
+DownwardMessageQueueHeads: map ParaId => Option<Hash>;
 ```
 
 ### HRMP
@@ -228,7 +243,14 @@ any of dispatchables return an error.
       1. If `NeedsDispatch` became empty then finish processing and set `NextDispatchRoundStartWith` to `None`.
   1. Then, for each `P` and the vector of `DispatchResult` in `R`:
       1. Obtain a message by wrapping the vector into `DownwardMessage::DispatchResult`
-      1. Append the resulting message to `DownwardMessageQueues` for `P`.
+      1. Call `enqueue_downward_message` with `P` and the resulting message.
+
+Utility routines.
+
+`queue_downward_message(P: ParaId, M: DownwardMessage)`:
+    1. Wrap `M` into `InboundDownwardMessage` using the current block number for `sent_at`.
+    1. Obtain a new MQC link for the resulting `InboundDownwardMessage` and replace `DownwardMessageQueueHeads` for `P` with the resulting hash.
+    1. Add the resulting `InboundDownwardMessage` into `DownwardMessageQueues` for `P`.
 
 ## Session Change
 
@@ -236,6 +258,7 @@ any of dispatchables return an error.
   1. Remove all inbound channels of `P`, i.e. `(_, P)`,
   1. Remove all outbound channels of `P`, i.e. `(P, _)`,
   1. Remove all `DownwardMessageQueues` of `P`.
+  1. Remove `DownwardMessageQueueHeads` for `P`.
   1. Remove `RelayDispatchQueueSize` of `P`.
   1. Remove `RelayDispatchQueues` of `P`.
   1. Remove `HrmpOpenChannelRequestCount` for `P`
